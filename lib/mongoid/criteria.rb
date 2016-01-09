@@ -4,6 +4,7 @@ require "mongoid/criteria/inspectable"
 require "mongoid/criteria/marshalable"
 require "mongoid/criteria/modifiable"
 require "mongoid/criteria/scopable"
+require 'concurrent/async'
 
 module Mongoid
 
@@ -23,6 +24,7 @@ module Mongoid
     include Modifiable
     include Scopable
     include Clients::Options
+    include Concurrent::Async
 
     # Static array used to check with method missing - we only need to ever
     # instantiate once.
